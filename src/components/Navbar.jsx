@@ -2,290 +2,130 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function Navbar() {
-
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
-  const currentPath = location.pathname;
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  const menus = [
-
-    {
-      name: "Home",
-      path: "/",
-    },
-
-    {
-      name: "About",
-      path: "/about",
-    },
-
-    {
-      name: "Project",
-      path: "/project",
-    },
-
-    {
-      name: "Contact",
-      path: "/contact",
-    },
-
+  const navItems = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/project", label: "Project" },
+    { path: "/contact", label: "Contact" },
   ];
 
   return (
-
-    <nav className="
-    fixed
-    top-0
-    left-0
-    w-full
-    z-50
-    bg-slate-950/70
-    backdrop-blur-xl
-    border-b
-    border-white/10
-    ">
-
-      <div className="
-      max-w-7xl
-      mx-auto
-      px-6
-      py-4
-      flex
-      justify-between
-      items-center
+    <>
+      <nav className="
+        fixed top-0 w-full z-50
+        bg-white
+        border-b border-gray-100
+        rounded-b-3xl
+        shadow-sm
       ">
+        <div className="w-full px-8 lg:px-16">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            
+            {/* LOGO - KIRI */}
+            <Link to="/" className="flex items-center gap-2 group">
+              <img 
+                src="/logo.png" 
+                alt="Logo"
+                className="w-8 h-8 lg:w-10 lg:h-10 object-contain"
+              />
+              <img 
+                src="/logo-text.png" 
+                alt="DevCount"
+                className="h-5 lg:h-6 object-contain"
+              />
+            </Link>
 
-        <div
-          onClick={() => navigate("/")}
-          className="
-          flex
-          items-center
-          gap-3
-          cursor-pointer
-          "
-        >
-
-          <div className="
-          w-10
-          h-10
-          rounded-xl
-          bg-gradient-to-br
-          from-blue-500
-          to-cyan-400
-          flex
-          items-center
-          justify-center
-          text-white
-          font-bold
-          shadow-lg
-          shadow-blue-500/30
-          ">
-
-            D
-
-          </div>
-
-          <div>
-
-            <h1 className="
-            text-2xl
-            font-black
-            text-white
-            ">
-
-              DevCount
-
-            </h1>
-
-            <p className="
-            text-xs
-            text-slate-400
-            -mt-1
-            ">
-
-              Digital Agency
-
-            </p>
-
-          </div>
-
-        </div>
-
-        <ul className="
-        hidden
-        lg:flex
-        items-center
-        gap-3
-        bg-white/5
-        border
-        border-white/10
-        backdrop-blur-xl
-        px-3
-        py-2
-        rounded-2xl
-        ">
-
-          {
-            menus.map((menu, index) => (
-
-              <li key={index}>
-
+            {/* DESKTOP MENU - KANAN */}
+            <div className="hidden lg:flex items-center gap-2">
+              {navItems.map((item) => (
                 <Link
-                  to={menu.path}
+                  key={item.path}
+                  to={item.path}
                   className={`
-                  px-5
-                  py-2
-                  rounded-xl
-                  transition
-                  duration-300
-                  font-medium
-
-                  ${currentPath === menu.path
-                    ? "bg-blue-500 text-white shadow-lg shadow-blue-500/30"
-                    : "text-slate-300 hover:bg-white/10 hover:text-white"}
+                    px-5 py-2 rounded-full text-sm font-medium
+                    transition-all duration-200
+                    ${location.pathname === item.path 
+                      ? "bg-gray-900 text-white" 
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                    }
                   `}
                 >
-
-                  {menu.name}
-
+                  {item.label}
                 </Link>
+              ))}
+              
+              {/* BUTTON HIRE ME - KANAN */}
+              <button
+                onClick={() => navigate("/contact")}
+                className="ml-2 bg-gray-900 hover:bg-gray-800 text-white px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105"
+              >
+                Hire Me
+              </button>
+            </div>
 
-              </li>
-
-            ))
-          }
-
-        </ul>
-
-        <button
-          onClick={() => navigate("/contact")}
-          className="
-          hidden
-          lg:block
-          bg-blue-500
-          hover:bg-blue-600
-          px-6
-          py-3
-          rounded-xl
-          text-white
-          font-semibold
-          transition
-          duration-300
-          shadow-lg
-          shadow-blue-500/30
-          "
-        >
-
-          Start Project
-
-        </button>
-
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="
-          lg:hidden
-          text-white
-          text-3xl
-          "
-        >
-
-          {
-            isOpen ? "✕" : "☰"
-          }
-
-        </button>
-
-      </div>
-
-      {
-        isOpen && (
-
-          <div className="
-          lg:hidden
-          bg-slate-950/95
-          backdrop-blur-xl
-          border-t
-          border-white/10
-          px-6
-          py-8
-          ">
-
-            <ul className="
-            flex
-            flex-col
-            gap-4
-            ">
-
-              {
-                menus.map((menu, index) => (
-
-                  <li key={index}>
-
-                    <Link
-                      to={menu.path}
-                      onClick={() => setIsOpen(false)}
-                      className={`
-                      block
-                      px-5
-                      py-4
-                      rounded-2xl
-                      transition
-                      duration-300
-                      font-medium
-                      text-lg
-
-                      ${currentPath === menu.path
-                        ? "bg-blue-500 text-white"
-                        : "text-slate-300 hover:bg-white/10 hover:text-white"}
-                      `}
-                    >
-
-                      {menu.name}
-
-                    </Link>
-
-                  </li>
-
-                ))
-              }
-
-            </ul>
-
+            {/* MOBILE TOGGLE - KANAN */}
             <button
-              onClick={() => {
-                navigate("/contact");
-                setIsOpen(false);
-              }}
-              className="
-              w-full
-              mt-6
-              bg-blue-500
-              hover:bg-blue-600
-              py-4
-              rounded-2xl
-              text-white
-              font-semibold
-              transition
-              duration-300
-              shadow-lg
-              shadow-blue-500/30
-              "
+              onClick={() => setOpen(!open)}
+              className="lg:hidden relative w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-200"
             >
-
-              Start Project
-
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="flex flex-col gap-1.5 w-4">
+                  <span className={`w-4 h-0.5 bg-gray-900 rounded-full transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`}></span>
+                  <span className={`w-4 h-0.5 bg-gray-900 rounded-full transition-all duration-300 ${open ? 'opacity-0' : ''}`}></span>
+                  <span className={`w-4 h-0.5 bg-gray-900 rounded-full transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                </div>
+              </div>
             </button>
-
           </div>
+        </div>
 
-        )
-      }
+        {/* MOBILE MENU */}
+        <div className={`
+          lg:hidden overflow-hidden transition-all duration-300 ease-in-out
+          ${open ? 'max-h-[400px]' : 'max-h-0'}
+        `}>
+          <div className="bg-white border-t border-gray-100 px-8 py-6">
+            <div className="flex flex-col gap-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setOpen(false)}
+                  className={`
+                    px-4 py-3 rounded-xl text-base font-medium
+                    transition-all duration-200
+                    ${location.pathname === item.path 
+                      ? "bg-gray-900 text-white" 
+                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    }
+                  `}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              
+              {/* Mobile Hire Me Button */}
+              <button
+                onClick={() => {
+                  navigate("/contact");
+                  setOpen(false);
+                }}
+                className="mt-4 w-full bg-gray-900 hover:bg-gray-800 text-white px-4 py-3 rounded-xl text-base font-medium transition-all duration-200"
+              >
+                Hire Me
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
 
-    </nav>
-
+      {/* Spacer */}
+      <div className="h-16 lg:h-20"></div>
+    </>
   );
 }
 
