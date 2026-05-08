@@ -17,7 +17,7 @@ function Home() {
   useEffect(() => {
     if (count < fullText.length) {
       const timeout = setTimeout(() => {
-        setCurrentText(prev => prev + fullText[count]);
+        setCurrentText((prev) => prev + fullText[count]);
         setCount(count + 1);
       }, 100);
       return () => clearTimeout(timeout);
@@ -47,35 +47,36 @@ function Home() {
       title: "E-Commerce Website",
       image: "/project1.jpg",
       category: "Web Development",
-      description: "Platform belanja online modern dengan fitur lengkap"
+      description: "Platform belanja online modern dengan fitur lengkap",
     },
     {
       id: 2,
       title: "Portfolio Dashboard",
       image: "/project2.jpg",
       category: "UI/UX Design",
-      description: "Dashboard analytics dengan desain minimalis"
+      description: "Dashboard analytics dengan desain minimalis",
     },
     {
       id: 3,
       title: "Mobile App Landing",
       image: "/project3.jpg",
       category: "Frontend",
-      description: "Landing page untuk aplikasi mobile modern"
+      description: "Landing page untuk aplikasi mobile modern",
     },
     {
       id: 4,
       title: "Admin Template",
       image: "/project4.jpg",
       category: "React",
-      description: "Template admin panel dengan React & Tailwind"
+      description: "Template admin panel dengan React & Tailwind",
     },
   ];
 
   return (
     <>
       {/* HERO SECTION */}
-      <section className="
+      <section
+        className="
         min-h-screen 
         bg-white
         flex items-center 
@@ -83,46 +84,52 @@ function Home() {
         overflow-hidden 
         relative
         py-16 sm:py-0
-      ">
-        
-        <div className="
+      "
+      >
+        <div
+          className="
           max-w-7xl mx-auto 
           grid grid-cols-1 lg:grid-cols-2 
           gap-8 sm:gap-12 md:gap-16 
           items-center 
           w-full 
           relative z-10
-        ">
-          
+        "
+        >
           {/* TEXT CONTENT - Kiri */}
           <div className="text-center lg:text-left">
-            <div className="
+            <div
+              className="
               inline-flex items-center gap-2 
               bg-gray-100 
               px-3 sm:px-4 py-1.5 sm:py-2 
               rounded-full 
               mb-4 sm:mb-6
               mx-auto lg:mx-0
-            ">
+            "
+            >
               <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-900 rounded-full animate-pulse"></div>
               <p className="text-gray-700 text-xs sm:text-sm font-semibold uppercase tracking-wider">
                 Portfolio Developer
               </p>
             </div>
-            
-            <h1 className="
+
+            <h1
+              className="
               text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
               font-black 
               leading-tight
-            ">
-              Hi, I'm 
+            "
+            >
+              Hi, I'm
               <span className="text-gray-900"> Haris Darmawan</span>
               <br />
-              <span className="text-gray-800 break-words">{currentText}</span>
+              <span className="text-gray-800">{currentText}</span>
               <span className="animate-blink text-gray-900">|</span>
             </h1>
 
-            <p className="
+            <p
+              className="
               text-gray-600 
               mt-4 sm:mt-6 
               max-w-xl 
@@ -130,27 +137,36 @@ function Home() {
               text-sm sm:text-base md:text-lg
               mx-auto lg:mx-0
               px-2 sm:px-0
-            ">
-              Saya membangun website modern, responsive, dan UI yang clean dengan performa tinggi 
-              menggunakan React & TailwindCSS. Fokus pada pengalaman pengguna yang luar biasa.
+            "
+            >
+              Saya membangun website modern, responsive, dan UI yang clean
+              dengan performa tinggi menggunakan React & TailwindCSS. Fokus pada
+              pengalaman pengguna yang luar biasa.
             </p>
 
             {/* STATS */}
-            <div className="
+            <div
+              className="
               grid grid-cols-3 
               gap-3 sm:gap-6 
               mt-6 sm:mt-8 md:mt-10
-            ">
+            "
+            >
               {stats.map((stat, index) => (
                 <div key={index} className="text-center lg:text-left">
-                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">{stat.number}</div>
-                  <div className="text-xs sm:text-sm text-gray-500 mt-1">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
+                    {stat.number}
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-500 mt-1">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* BUTTONS */}
-            <div className="
+            <div
+              className="
               flex 
               flex-col 
               sm:flex-row 
@@ -158,11 +174,9 @@ function Home() {
               mt-6 sm:mt-8 md:mt-10
               items-stretch
               sm:items-center
-            ">
-              <Button 
-                title="Contact Me" 
-                onClick={() => navigate("/contact")}
-              />
+            "
+            >
+              <Button title="Contact Me" onClick={() => navigate("/contact")} />
               <button
                 onClick={() => navigate("/project")}
                 className="
@@ -180,14 +194,23 @@ function Home() {
                   flex items-center justify-center 
                   gap-2
                   text-sm sm:text-base
-                  min-w-[160px] sm:min-w-[180px]
                   whitespace-nowrap
                   bg-white
                 "
               >
                 View Project
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </button>
             </div>
@@ -198,8 +221,8 @@ function Home() {
             <div className="relative w-full max-w-sm md:max-w-md lg:max-w-lg ml-auto lg:mr-0">
               <div className="absolute -inset-4 sm:-inset-6 bg-gray-100 rounded-3xl"></div>
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
-                <img 
-                  src="/profile.jpg" 
+                <img
+                  src="/profile.jpg"
                   alt="Haris Darmawan - Frontend Developer"
                   className="w-full h-auto object-cover"
                   style={{ aspectRatio: "4/5" }}
@@ -207,7 +230,6 @@ function Home() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -229,23 +251,25 @@ function Home() {
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
                 I'm Haris Darmawan, Frontend Developer
               </h3>
-              
+
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Saya adalah seorang Frontend Developer berpengalaman dengan passion dalam 
-                  membangun aplikasi web yang modern, responsif, dan user-friendly. 
-                  Dengan pengalaman lebih dari 5 tahun di industri teknologi, saya telah 
-                  mengerjakan berbagai proyek dari skala kecil hingga enterprise.
+                  Saya adalah seorang Frontend Developer berpengalaman dengan
+                  passion dalam membangun aplikasi web yang modern, responsif,
+                  dan user-friendly. Dengan pengalaman lebih dari 5 tahun di
+                  industri teknologi, saya telah mengerjakan berbagai proyek
+                  dari skala kecil hingga enterprise.
                 </p>
-                
+
                 <p>
-                  Fokus utama saya adalah menciptakan pengalaman pengguna yang luar biasa 
-                  melalui kode yang bersih, efisien, dan maintainable.
+                  Fokus utama saya adalah menciptakan pengalaman pengguna yang
+                  luar biasa melalui kode yang bersih, efisien, dan
+                  maintainable.
                 </p>
-                
+
                 <p>
-                  Saat ini saya mendalami ecosystem React dan Laravel untuk membangun 
-                  aplikasi full-stack yang scalable.
+                  Saat ini saya mendalami ecosystem React dan Laravel untuk
+                  membangun aplikasi full-stack yang scalable.
                 </p>
               </div>
 
@@ -254,31 +278,39 @@ function Home() {
                   <i className="fas fa-user text-gray-900 text-lg"></i>
                   <div>
                     <p className="text-xs text-gray-500">Name</p>
-                    <p className="text-sm font-semibold text-gray-900">Haris Darmawan</p>
+                    <p className="text-sm font-semibold text-gray-900">
+                      Haris Darmawan
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-3">
                   <i className="fas fa-envelope text-gray-900 text-lg"></i>
                   <div>
                     <p className="text-xs text-gray-500">Email</p>
-                    <p className="text-sm font-semibold text-gray-900">haris@example.com</p>
+                    <p className="text-sm font-semibold text-gray-900">
+                      haris@example.com
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-3">
                   <i className="fas fa-map-marker-alt text-gray-900 text-lg"></i>
                   <div>
                     <p className="text-xs text-gray-500">Location</p>
-                    <p className="text-sm font-semibold text-gray-900">Jakarta, Indonesia</p>
+                    <p className="text-sm font-semibold text-gray-900">
+                      Jakarta, Indonesia
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-3">
                   <i className="fas fa-briefcase text-gray-900 text-lg"></i>
                   <div>
                     <p className="text-xs text-gray-500">Experience</p>
-                    <p className="text-sm font-semibold text-gray-900">5+ Years</p>
+                    <p className="text-sm font-semibold text-gray-900">
+                      5+ Years
+                    </p>
                   </div>
                 </div>
               </div>
@@ -295,8 +327,8 @@ function Home() {
             <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-200">
               <i className="fas fa-quote-left text-4xl text-gray-300 mb-4 block"></i>
               <p className="text-gray-700 text-lg leading-relaxed italic mb-6">
-                "Membangun website bukan hanya tentang kode, tetapi tentang menciptakan 
-                solusi yang membantu orang mencapai tujuan mereka."
+                "Membangun website bukan hanya tentang kode, tetapi tentang
+                menciptakan solusi yang membantu orang mencapai tujuan mereka."
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center">
@@ -343,7 +375,7 @@ function Home() {
         </div>
       </section>
 
-      {/* PROJECT PREVIEW SECTION - CARD BAGUS */}
+      {/* PROJECT PREVIEW SECTION - CLEAN CARD */}
       <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
@@ -359,56 +391,35 @@ function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {projects.map((project) => (
               <div
                 key={project.id}
                 onClick={() => navigate("/project")}
                 className="group cursor-pointer"
               >
-                <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3">
-                  {/* Image Container */}
-                  <div className="relative overflow-hidden h-56">
+                <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  {/* Image Landscape */}
+                  <div className="relative overflow-hidden h-48 bg-gray-100">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    {/* Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    {/* Icon on hover */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-0 group-hover:scale-100">
-                      <div className="bg-white rounded-full p-3 shadow-lg">
-                        <i className="fas fa-arrow-right text-gray-900 text-xl"></i>
-                      </div>
-                    </div>
-                    
-                    {/* Category Badge */}
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                      <p className="text-xs font-semibold text-gray-900">{project.category}</p>
-                    </div>
                   </div>
-                  
+
                   {/* Content */}
-                  <div className="p-5">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors line-clamp-1">
+                  <div className="p-4">
+                    <p className="text-xs text-gray-500 mb-1">
+                      {project.category}
+                    </p>
+                    <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-sm text-gray-500 line-clamp-2">
                       {project.description}
                     </p>
-                    
-                    {/* Tech Stack Tags */}
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">React</span>
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">Tailwind</span>
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">API</span>
-                    </div>
                   </div>
-                  
-                  {/* Bottom Border Effect */}
-                  <div className="absolute bottom-0 left-0 w-0 h-1 bg-gray-900 group-hover:w-full transition-all duration-500"></div>
                 </div>
               </div>
             ))}
@@ -417,10 +428,10 @@ function Home() {
           <div className="text-center mt-12">
             <button
               onClick={() => navigate("/project")}
-              className="group inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
             >
               <span>View All Projects</span>
-              <i className="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+              <i className="fas fa-arrow-right text-sm"></i>
             </button>
           </div>
         </div>
@@ -428,17 +439,16 @@ function Home() {
 
       <style jsx>{`
         @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
         }
         .animate-blink {
           animation: blink 1s infinite;
-        }
-        .line-clamp-1 {
-          display: -webkit-box;
-          -webkit-line-clamp: 1;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
         }
         .line-clamp-2 {
           display: -webkit-box;

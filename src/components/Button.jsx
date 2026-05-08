@@ -16,7 +16,6 @@ function Button({ title, onClick }) {
         text-sm sm:text-base
         whitespace-nowrap
         w-full sm:w-auto
-        min-w-[160px] sm:min-w-[180px]
         flex items-center justify-center
       ">
       {title}
